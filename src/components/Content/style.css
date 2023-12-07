@@ -1,0 +1,49 @@
+section {
+  box-sizing: border-box;
+  max-width: 720px;
+  width: 100%;
+  margin: 1rem auto;
+  text-align: center;
+  color: white;
+  font-weight: 600;
+}
+
+section header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.col {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 1.6rem;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.col h2 {
+  font-size: 1.7rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.col p {
+  font-family: "Roboto", sans-serif;
+}
+
+address p {
+  display: flex;
+  gap: 1rem;
+  font-family: "Roboto", sans-serif;
+}
+
+address p span:first-child {
+  min-width: 50px;
+}

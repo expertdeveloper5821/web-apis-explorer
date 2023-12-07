@@ -1,0 +1,31 @@
+.listItem {
+  border-radius: 6px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+ul li {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+  font-family: "Roboto", sans-serif;
+}
+
+.active {
+  background-color: #16232e;
+}
+
+.active .opneLink {
+  box-sizing: border-box;
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+}
