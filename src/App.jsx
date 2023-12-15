@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { SideBar } from "./components/SideBar";
 import "./App.css";
 import ListItem from "./components/ListItems";
@@ -12,14 +12,18 @@ function App() {
   const [isModalOpen, setModalOpen] = useState(false);
   const [resUrls, setResUrls] = useState(null);
   const [providerData, setProviderData] = useState(null);
+  const initialized = useRef(false);
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
 
   useEffect(() => {
-    (async function () {
-      const res = await getProvidersData();
-      setResUrls(res.data.data);
-    })();
+    if (!initialized.current) {
+      initialized.current = true;
+      (async function () {
+        const res = await getProvidersData();
+        setResUrls(res.data.data);
+      })();
+    }
   }, []);
 
   async function fetchProvider(providerName) {
