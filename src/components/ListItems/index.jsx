@@ -19,14 +19,15 @@ const ListItem = ({ resUrls, fetchProvider, closeModal, providerData }) => {
   }
   return (
     <>
-      <h2>Select Provider</h2>
+      <h2 className="px-4 pb-4 text-lg text-white font-semibold text-center" >Select Provider</h2>
       <ul>
         {resUrls.map((link, i) => (
           <div
             key={link}
-            className={`${activeIndex === i ? "active" : ""}  listItem`}
+            className={`${activeIndex === i ?  "bg-black" : ""}  "box-border text-white w-full p-2 cursor-pointer flex items-center gap-4 font-sans flex flex-col items-baseline"`}
           >
             <li
+              className="text-white flex justify-between items-center cursor-pointer p-2 font-sans"
               onClick={() => {
                 fetchProvider(link);
                 handleOpenWeb(i);
@@ -36,8 +37,8 @@ const ListItem = ({ resUrls, fetchProvider, closeModal, providerData }) => {
               {activeIndex === i ? <UpIcon /> : <DropdownIcon />}
             </li>
             {activeIndex === i && providerData && (
-              <div className="opneLink" onClick={closeModal}>
-                <img width={28} height={28} src={imgUrl || "✌️"} alt="logo" />
+              <div className="box-border text-white w-full p-2 cursor-pointer flex items-center gap-4 font-sans" onClick={closeModal}>
+                <img className="w-7 h-7" src={imgUrl || "✌️"} alt="logo" />
                 {title || "N/A"}
               </div>
             )}

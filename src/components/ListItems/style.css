@@ -4,7 +4,7 @@
   font-weight: 600;
 }
 
-ul li {
+/* ul li {
   color: white;
   display: flex;
   justify-content: space-between;
@@ -12,13 +12,13 @@ ul li {
   cursor: pointer;
   padding: 10px;
   font-family: "Roboto", sans-serif;
-}
+} */
 
-.active {
+/* .active {
   background-color: #16232e;
-}
+} */
 
-.active .opneLink {
+/* .active .opneLink {
   box-sizing: border-box;
   color: #fff;
   width: 100%;
@@ -28,4 +28,4 @@ ul li {
   gap: 10px;
   align-items: center;
   font-family: "Roboto", sans-serif;
-}
+} */

@@ -32,9 +32,9 @@ function App() {
   }
 
   return (
-    <div className="app">
+    <div className="box-border bg-var(--bgMain) flex flex-col justify-center items-center min-h-screen max-w-screen w-full overflow-hidden relative p-8 bg-[#42607b]">
       <Content providerData={providerData} setProviderData={setProviderData} />
-      {!providerData && <button onClick={openModal}>Explore web APIs</button>}
+      {!providerData && <button className="bg-[#00a1d4] text-white p-2 rounded-md" onClick={openModal}>Explore web APIs</button>}
       <SideBar isOpen={isModalOpen} onClose={closeModal}>
         <ListItem
           closeModal={closeModal}
