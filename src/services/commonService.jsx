@@ -7,7 +7,7 @@ export const getProvidersData = async () => {
   return res;
 };
 
-export const getPerticularProvidersData = async (providerName) => {
+export const getParticularProvidersData = async (providerName) => {
   const res = await sendRequest(`${providerName}.json`, {
     method: "GET",
   });

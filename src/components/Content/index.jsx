@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { getDataValues } from "../../utils/globalFunction";
 import Title from "./title";
 import Para from "./para";
 import { Contact } from "./contact";
-import "./style.css";
+import { defaultImg } from "../../utils/config";
+import Button from "../Button";
 
 const Content = ({ providerData, setProviderData }) => {
-  if (!providerData) {
-    return null;
-  }
+  const [imgError, setImgError] = useState(false);
+
+  useEffect(() => {
+    setImgError(false);
+  }, [providerData]);
 
   let x = "x-logo";
   const data = getDataValues(providerData);
@@ -19,36 +22,39 @@ const Content = ({ providerData, setProviderData }) => {
     var { name, email, url } = data?.info?.contact;
   }
 
+  if (!providerData) {
+    return null;
+  }
+
   return (
-    <section className="box-border max-w-720 w-full mx-auto text-center text-white font-semibold">
-      <header className="flex gap-4 items-center justify-center m-4">
-        <span>
-          <img className="w-50 h-50" src={imgUrl} alt="logo" />
-        </span>
-        <h1 className="text-2xl font-sans">{title}</h1>
+    <section className="w-full mx-auto md:px-12 text-center text-white font-semibold">
+      <header className=" gap-4 flex-center flex-wrap m-4">
+        <img
+          className="h-14 md:h-24 w-14 md:w-24 object-contain"
+          src={imgError ? defaultImg : imgUrl}
+          alt="logo"
+          onError={() => setImgError(true)}
+        />
+        <h1 className="text-xl md:text-4xl font-normal ">{title}</h1>
       </header>
-      <div className="text-left flex flex-col gap-10 m-6">
+      <div className="mini-container overflow-x-hidden">
         <Title title="Description" />
         <Para para={description} />
       </div>
-      <div className="text-left flex flex-col gap-10 m-6">
+      <div className="mini-container">
         <Title title="Swaggar" />
         <Para para={swaggerUrl} />
       </div>
-
-      <div className="text-left flex flex-col gap-10 m-6">
+      <div className="mini-container">
         <Title title="Contact" />
         <Contact name="Email" text={email} />
         <Contact name="Name" text={name} />
         <Contact name="Url" text={url} />
       </div>
-
-      <button
-        className="bg-[#00a1d4] text-white p-2 rounded-md"
-        onClick={() => setProviderData(null)}
-      >
-        Explore web APIs
-      </button>
+      <Button
+        text={"Explore web APIs"}
+        handleClick={() => setProviderData(null)}
+      />
     </section>
   );
 };
